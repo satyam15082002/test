@@ -1,0 +1,33 @@
+{% extends 'main/nav.html' %}
+{% block title %}{{username}}/Home{% endblock%}
+{% block head %}
+    <style>
+        @media(orientation: landscape){
+        .img{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            
+        
+        }
+        .img>div{
+            border: 1px white solid;
+            padding: 10px;
+            text-align: center;
+        }
+    }
+    </style>
+    {% endblock%}
+{% block body %}
+<h1> welcome you login </h1>
+<h1> {{user}}</h1>
+{% if a  %}
+<div class="img">
+{% for s in a %}
+    <div>
+ <span>{{s.username}}</span>
+<img src="media/{{s.img}}" width="400px" height="400px" />
+</div>
+{% endfor %}
+</div>
+{% endif %}
+{% endblock %}

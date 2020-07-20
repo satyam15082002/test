@@ -1,0 +1,28 @@
+{% load static %}
+<html>
+    <head>
+    <link href="{% static 'c.css' %}" rel="stylesheet" type="text/css"/>
+     <title>Login</title>
+    </head>
+<body>
+
+<fieldset>
+<legend><h1>login</h1></legend>
+<form action="login" method="POST">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="username" required/>
+    <br>
+    <input type="password" name="password" placeholder=" password" required/>
+    <br>
+    <input type="submit" value="login"/>
+</form>
+<div>
+    {% for message in messages %}
+    <h1> {{ message }}<h1>
+    {% endfor %}
+    </div>
+</fieldset>
+
+<a href="signup">signup</a>
+</body> 
+</html>

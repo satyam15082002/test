@@ -1,0 +1,64 @@
+{% extends 'chat/nav.html' %}
+{% load static %}
+{% block head %}
+        <link href="{% static 'chat/inside.css' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+{% block title %}
+{{username}}/{{group.group_name}}
+{% endblock %}
+{% block body %}
+    {% if admin %}
+    <nav>
+        <a href="{% url 'delete' group.id%}"><button >DELETE GROUP</button></a>
+    </nav>
+    {% endif %}
+      <fieldset>
+      <legend> <h1>{{group.group_name}}</h1></legend>
+       <ul id="msg">
+        {% for i in msg %}   
+        <li>{{i.name}}:{{i.msg}}</li>
+        {% endfor %}
+       </ul>
+    </fieldset>
+    <div id="smsg">
+        <form id="form" >
+            
+                <input type="text" maxlength="1000" placeholder="enter to send" id="message"/>
+                <input type="submit" value="send" class="submit"/>
+        </form>
+    </div>
+    <script type="text/javascript">
+        $("#form").submit((e)=>{
+            e.preventDefault();
+            a=$("#message").val()
+            if(a!==""){
+              $.ajax({
+                  type:'GET',
+                  url:"{% url 'addmsg' group.id %}",
+                  data:{message:$("#message").val() 
+                       },   
+                  success:function(){console.log("working")},
+                  error:()=>{alert("error")}
+              })
+            $("#msg").append(`<li>{{username}}::-${$("#message").val()}</li>`)
+            $("#message").val("");
+            }
+           })
+           setInterval(()=>{
+               $.ajax({
+                   type:'GET',
+                   url:"{% url 'loadmsg' group.id %}",
+                   data:{},
+                   success:(msg)=>{ 
+                       if(msg==""){}
+                       else{
+                           $("#msg").html("")
+                      $("#msg").append(msg)
+                       }
+                    },
+                   error:()=>{alert("error")}
+               });
+           },1000)
+     </script>
+{% endblock %}
+ 

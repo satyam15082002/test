@@ -1,0 +1,16 @@
+body
+{
+background-color: rgba(243, 0, 0, 0.589);
+}
+form{
+    display: grid;
+    grid-template-columns: 100%;
+    justify-content: center;
+    grid-gap: 2px;
+}
+legend>h1{
+    text-align: center;
+}
+form>input{
+    padding: 5px;
+}

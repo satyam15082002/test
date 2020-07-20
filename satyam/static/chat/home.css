@@ -1,0 +1,25 @@
+.f{
+    display: grid;
+    grid-template-columns: 100%;
+    border: 1px solid black;
+    text-align: center;
+}
+.f>form>input[type="text"]{
+    width: 50vw;
+    height: 5vh;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+.f>form>input[type="submit"]{
+    height: 5vh;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: azure;
+}
+.f>form>input[type="submit"]:hover{
+    height: 5vh;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: red;
+    opacity: 0.5;
+}

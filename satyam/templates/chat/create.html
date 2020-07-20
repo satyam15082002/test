@@ -1,0 +1,25 @@
+{% extends 'chat/nav.html' %}
+{% load static %}
+{% block title %}
+{{username}}/create
+{% endblock %}
+{% block head %}
+        <link href="{% static 'chat/home.css' %}" rel="stylesheet" type="text/css"/>
+{% endblock %}
+{% block body %}
+       <div class="f">
+        <h1>Create Group</h1>
+        <form action="creategroup" method="POST" id="form">
+          {% csrf_token %}
+        <input type="text" name="group_name" id="in" placeholder="enter group name" required/>
+        <br/>
+        <input type="submit" value="create"/>
+       </form>
+
+      <ul>
+        {% for i in messages %}
+        <li><h1>{{i}}</h1></li>
+        {% endfor %}
+      </ul>
+      </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+#up{
+    
+width:100%;
+padding-top:70px;
+padding-bottom: 20px;
+padding-left: 20px;
+display: flex;
+flex-wrap: wrap;
+}
+#in
+{
+    width: 400%;
+}
+input[type="submit"]{
+    margin-top: 20px;
+    
+}
+#s{
+    background-color: white;
+    padding: 5px;
+    text-transform: uppercase;
+    color: black;
+}
+article
+{
+    margin-top: 10px;
+}

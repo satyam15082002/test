@@ -1,0 +1,22 @@
+{% load static %}
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <script src="{% static 'jquery.js' %}"></script>
+        <link href="{% static 'chat/nav.css' %}" rel="stylesheet" type="text/css"/>
+        {% block head %}
+        {% endblock %}
+        <title>{% block title %} {% endblock %}</title>
+    </head>
+    <body>
+        <div id="navigation">
+         <a href="{% url 'home' %}">Chat</a>
+         <a href="{% url 'create' %}">create</a>
+         <a href="{% url 'search' %}">search</a>
+         <a href="/home">back</a>
+        </div>
+        {% block body%}
+        {% endblock %}
+    </body>
+   
+</html>

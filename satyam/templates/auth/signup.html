@@ -1,0 +1,38 @@
+{% load static %}
+<html>
+    <head>
+    <link href="{% static 'c.css' %}" rel="stylesheet" type="text/css"/>
+  <title>Signup</title>
+    </head>
+<body>
+
+<div id="l">
+<fieldset>
+<legend><h1>signup</h1></legend>
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="username" required/>
+    <br>
+    <input type="email" name="email" placeholder="email" required/>
+    <br>
+    <input type="password" name="password1" placeholder="password" required/>
+    <br>
+    <input type="password" name="password2" placeholder="reenter password" required/>
+    <br>
+    <input type="submit" value="signup"/>
+</form>
+</fieldset>
+</div>
+<div>
+{% if s %}
+<h1>account created successfully</h1>
+ {% endif %}
+</div>
+<div>
+{% for message in messages %}
+<h1> {{ message }}<h1>
+{% endfor %}
+</div>
+<a href="login">login</a>
+</body> 
+</html>

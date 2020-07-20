@@ -1,0 +1,42 @@
+{% extends 'main/nav.html' %}
+{% load static %}
+{% block title %}{{username}}/Upload{% endblock%}
+{% block head %}
+       <script src="{% static 'upload.js' %}"></script>
+    <style>
+        #bar{
+            width: 50vw;
+            height: 20%;
+            border: 1px solid blue;
+            border-radius: 10px;
+        }
+        #bar>div{
+            width: 0%;
+            height: 100%;
+            background-color: blue;
+        }
+       .f{
+           display: grid;
+           padding: 50px;
+           grid-template-columns: 100%;
+           border: 2px solid black;
+           grid-auto-rows: 20vh;
+       }
+    </style>
+    {% endblock %}
+    {% block body %}
+        <div class="f">
+        <form action="upload" method="POST" enctype="multipart/form-data"  id="form1">
+            {% csrf_token %}
+            <input type="file" name="img" required id="img"/>
+            <input type="submit" value="uploadimage"/>
+            </form>
+
+            {% for message in messages  %}
+            <h1>{{ message }}</h1>
+            {% endfor %}
+           <div id="bar">
+            <div ></div>
+           </div>
+           </div>
+{% endblock %}
